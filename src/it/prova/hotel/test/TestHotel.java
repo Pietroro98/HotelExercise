@@ -40,6 +40,18 @@ public class TestHotel {
         System.out.println("Clienti stanza 2: " + stanza2.getClienti());
         System.out.println("Clienti stanza 3: " + stanza3.getClienti());
 
+        // Effettuo il checkout per ogni stanza
+        System.out.println("\n--- Checkout stanza 1 ---");
+        int totaleStanza1 = stanza1.checkout();
+        System.out.println("Totale stanza 1: " + totaleStanza1);
+
+        System.out.println("\n--- Checkout stanza 2 ---");
+        int totaleStanza2 = stanza2.checkout();
+        System.out.println("Totale stanza 2: " + totaleStanza2);
+
+        System.out.println("\n--- Checkout stanza 3 ---");
+        int totaleStanza3 = stanza3.checkout();
+        System.out.println("Totale stanza 3: " + totaleStanza3);
 
     }
 }
