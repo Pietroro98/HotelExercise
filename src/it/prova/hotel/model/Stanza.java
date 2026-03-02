@@ -62,9 +62,9 @@ public class Stanza {
      * se durante iterazione, cliente era in u altra stanza lo rimuovo.
      * @param cliente
      */
-    public void aggiungiClienteAStanza(Cliente cliente){
+    public boolean aggiungiClienteAStanza(Cliente cliente){
         if(cliente == null || clienti.size() >= capienzaMaxStanza()) {
-            return ;
+            return false;
         }
 
         if(cliente.getStanza() != null && cliente.getStanza() != this) {
@@ -74,6 +74,7 @@ public class Stanza {
         clienti.add(cliente);
         cliente.setStanza(this);
 
+        return false;
     }
 
     public void rimuoviClienteDaStanza(Cliente cliente){

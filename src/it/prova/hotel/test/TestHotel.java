@@ -6,41 +6,41 @@ public class TestHotel {
     public static void main(String[] args) {
         System.out.println("Hotel exercise");
 
-        // creazione hotel
-        Hotel hotel = Hotel.creaHotel("Hotel luxury", 5);
+        // Creazione hotel
+        Hotel hotel = Hotel.creaHotel("Hotel Luxury", 5);
         System.out.println(hotel);
 
-        // aggiungo stanze al hotel
-        Stanza stanza1 = new Stanza(1, 100, hotel);
-        Stanza stanza2 = new Stanza(102, 250, hotel);
+        // Aggiungo stanze all'hotel
+        Stanza stanza1 = new Stanza(101, 100, hotel);
+        Stanza stanza2 = new Stanza(102, 200, hotel);
         Stanza stanza3 = new Stanza(103, 300, hotel);
 
         hotel.aggiungiStanza(stanza1);
         hotel.aggiungiStanza(stanza2);
         hotel.aggiungiStanza(stanza3);
 
-        System.out.println(hotel.getStanze());
+        // Creazione clienti di tipi diversi
+        Cliente turista1 = new Turista("Mario", "Rossi");
+        Cliente turista2 = new Turista("Elena", "Verdi");
+        Cliente rappresentante1 = new Rappresentante("Anna", "Bianchi");
+        Cliente rappresentante2 = new Rappresentante("Paolo", "Blu");
+        Cliente premio = new Premio("Clara", "Neri");
 
-        // Creaione dei clienti
-        Cliente cliente1 = new Turista("Mario", "Rossi");
-        Cliente cliente2 = new Rappresentante("Anna", "Bianchi");
-        Cliente cliente3 = new Premio("Luigi", "Verdi");
-        Cliente cliente4 = new Turista("Elisa", "Gialli");
-        Cliente cliente5 = new Rappresentante("Paolo", "Blu");
+        // Aggiunta clienti a stanze con controllo di capienza
+        stanza1.aggiungiClienteAStanza(turista1);
+        stanza1.aggiungiClienteAStanza(rappresentante1);
 
+        stanza2.aggiungiClienteAStanza(turista2);
+        stanza2.aggiungiClienteAStanza(premio);
 
-        // Aggiungo clienti alle stanze
-        stanza1.aggiungiClienteAStanza(cliente1);
-        stanza1.aggiungiClienteAStanza(cliente2);
-        stanza2.aggiungiClienteAStanza(cliente3);
-        stanza2.aggiungiClienteAStanza(cliente4);
-        stanza3.aggiungiClienteAStanza(cliente5);
+        stanza3.aggiungiClienteAStanza(rappresentante2);
 
+        // Verifica iniziale dei clienti in ogni stanza
         System.out.println("\nClienti stanza 1: " + stanza1.getClienti());
         System.out.println("Clienti stanza 2: " + stanza2.getClienti());
         System.out.println("Clienti stanza 3: " + stanza3.getClienti());
 
-        // Effettuo il checkout per ogni stanza
+        // Checkout clienti
         System.out.println("\n--- Checkout stanza 1 ---");
         int totaleStanza1 = stanza1.checkout();
         System.out.println("Totale stanza 1: " + totaleStanza1);
@@ -53,5 +53,43 @@ public class TestHotel {
         int totaleStanza3 = stanza3.checkout();
         System.out.println("Totale stanza 3: " + totaleStanza3);
 
+        // Verifica delle stanze dopo il checkout (devono essere vuote)
+        System.out.println("\nStato delle stanze dopo il checkout:");
+        System.out.println("Clienti stanza 1: " + stanza1.getClienti());
+        System.out.println("Clienti stanza 2: " + stanza2.getClienti());
+        System.out.println("Clienti stanza 3: " + stanza3.getClienti());
+
+        // Checkout di una stanza vuota
+        System.out.println("\n--- Provo il checkout su una stanza vuota ---");
+        int totaleVuota = stanza1.checkout();
+        System.out.println("Totale stanza vuota (stanza 1): " + totaleVuota);
+
+        // Raggiunta capienza massima
+        System.out.println("\n--- Provo a riempire una stanza fino alla capienza massima ---");
+        stanza1.aggiungiClienteAStanza(turista1);
+        stanza1.aggiungiClienteAStanza(turista2);
+        stanza1.aggiungiClienteAStanza(rappresentante1);
+        stanza1.aggiungiClienteAStanza(rappresentante2);
+
+        // Provo ad aggiungere un cliente extra, dovrebbe fallire per via della capienza max a 4 (quadrupla max)
+        boolean clienteExtra = stanza1.aggiungiClienteAStanza(premio);
+        System.out.println("Risultato atteso false:  " + clienteExtra);
+
+        // Stampo i clienti della stanza per confermare
+        System.out.println("Clienti stanza 1 dopo riempimento: " + stanza1.getClienti());
+
+        // Aggiungo e poi rimuovo un cliente
+        System.out.println("\n--- Rimuovo un cliente e ne aggiungo un altro ---");
+        stanza1.rimuoviClienteDaStanza(turista1);
+        stanza1.aggiungiClienteAStanza(premio);
+        System.out.println("Clienti stanza 1 dopo rimozione e aggiunta: " + stanza1.getClienti());
+
+        // Verifica finale delle stanze disponibili basata su criteri specifici
+        System.out.println("\n--- Verifica finale: Trova stanze disponibili ---");
+        int maxClientiFinale = 4;
+        int maxPrezzoFinale = 300;
+        System.out.println("Stanze disponibili (max clienti: " + maxClientiFinale + ", max prezzo: " + maxPrezzoFinale + "): " + hotel.trovaStanzeDisponibili(maxClientiFinale, maxPrezzoFinale));
+
+        System.out.println("Fine test.");
     }
 }

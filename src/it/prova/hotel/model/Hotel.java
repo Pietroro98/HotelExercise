@@ -48,6 +48,22 @@ public class Hotel {
        }
     }
 
+    /**
+     * Trova stanze disponibili basate su maxClienti e maxPrezzo
+     * @param maxClienti massimo numero di clienti per stanza
+     * @param maxPrezzo massimo prezzo per persona
+     * @return lista di stanze disponibili
+     */
+    public List<Stanza> trovaStanzeDisponibili(int maxClienti, int maxPrezzo) {
+        List<Stanza> stanzeDisponibili = new ArrayList<>();
+        for (Stanza stanza : stanze) {
+            if (stanza.getClienti().size() < maxClienti && stanza.getQuantoAPersona() <= maxPrezzo) {
+                stanzeDisponibili.add(stanza);
+            }
+        }
+        return stanzeDisponibili;
+    }
+
     @Override
     public String toString() {
         return "Hotel{" +
