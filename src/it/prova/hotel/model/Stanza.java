@@ -74,7 +74,7 @@ public class Stanza {
         clienti.add(cliente);
         cliente.setStanza(this);
 
-        return false;
+        return true;
     }
 
     public void rimuoviClienteDaStanza(Cliente cliente){
