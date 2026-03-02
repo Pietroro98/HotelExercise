@@ -31,7 +31,7 @@ public abstract class Cliente {
         return stanza;
     }
 
-    public void setStanza(Stanza stanza) {
+    protected void setStanza(Stanza stanza) {
         this.stanza = stanza;
     }
 
