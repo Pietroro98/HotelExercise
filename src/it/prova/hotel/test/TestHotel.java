@@ -21,7 +21,7 @@ public class TestHotel {
 
         System.out.println(hotel.getStanze());
 
-        // 3. Aggiungo clienti alle stanze
+        // Creaione dei clienti
         Cliente cliente1 = new Turista("Mario", "Rossi");
         Cliente cliente2 = new Rappresentante("Anna", "Bianchi");
         Cliente cliente3 = new Premio("Luigi", "Verdi");
@@ -29,17 +29,17 @@ public class TestHotel {
         Cliente cliente5 = new Rappresentante("Paolo", "Blu");
 
 
-        // Aggiungo clienti alle stanze con controllo sulla capienza
-        stanza1.aggiungiClienteAStanza(cliente1); // Mario -> Stanza 1
-        stanza1.aggiungiClienteAStanza(cliente2); // Anna -> Stanza 1
-        stanza2.aggiungiClienteAStanza(cliente3); // Luigi -> Stanza 2
-        stanza2.aggiungiClienteAStanza(cliente4); // Elisa -> Stanza 2
-        stanza3.aggiungiClienteAStanza(cliente5); // Paolo -> Stanza 3
+        // Aggiungo clienti alle stanze
+        stanza1.aggiungiClienteAStanza(cliente1);
+        stanza1.aggiungiClienteAStanza(cliente2);
+        stanza2.aggiungiClienteAStanza(cliente3);
+        stanza2.aggiungiClienteAStanza(cliente4);
+        stanza3.aggiungiClienteAStanza(cliente5);
 
         System.out.println("\nClienti stanza 1: " + stanza1.getClienti());
         System.out.println("Clienti stanza 2: " + stanza2.getClienti());
         System.out.println("Clienti stanza 3: " + stanza3.getClienti());
 
-        
+
     }
 }
