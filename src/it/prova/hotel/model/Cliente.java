@@ -11,7 +11,31 @@ public abstract class Cliente {
         this.cognome = cognome;
     }
 
-   public abstract int sommaRealeDaPagare();
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
+    public Stanza getStanza() {
+        return stanza;
+    }
+
+    public void setStanza(Stanza stanza) {
+        this.stanza = stanza;
+    }
+
+    public abstract int sommaRealeDaPagare();
 
     @Override
     public String toString() {

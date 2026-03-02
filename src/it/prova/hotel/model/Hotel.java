@@ -13,6 +13,22 @@ public class Hotel {
         Stelle = stelle;
     }
 
+    public String getRagioneSociale() {
+        return ragioneSociale;
+    }
+
+    public void setRagioneSociale(String ragioneSociale) {
+        this.ragioneSociale = ragioneSociale;
+    }
+
+    public int getStelle() {
+        return Stelle;
+    }
+
+    public void setStelle(int stelle) {
+        Stelle = stelle;
+    }
+
 
     @Override
     public String toString() {
