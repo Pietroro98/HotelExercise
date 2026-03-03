@@ -74,24 +74,26 @@ public class Hotel {
     }
 
 
-   /* public int checkout() {
-        System.out.println("Effettuando il checkout della stanza n. " + );
+    /**
+     * metodo che pasando la somma reale da pagare, successivamente poi rinmuove il cliente dalla stanza.
+     * @param input
+     * @return
+     */
+    public int checkout(Stanza input) {
+        System.out.println("Effettuando il checkout della stanza n. " + input.getNumeroStanza());
         int totale = 0;
-
-        for (Cliente cliente : clienti) {
-            int daPagare = getHotel().calcolaConto(this);
+        for (Cliente cliente : input.getClienti()) {
+            int daPagare = cliente.sommaRealeDaPagare(); // richiamo il metodo per il calcolo della somma reale da pagare
             System.out.println("Cliente: " + cliente.getNome() + " " + cliente.getCognome() +
                     " paga: " + daPagare);
             totale += daPagare;
-
-            //rimuovo il cliente dalla stanza
-            cliente.setStanza(null);
         }
+        // dopo il pagamento, svuoto la stanza
+        input.getClienti().clear();
+        System.out.println("Checkout completato. La stanza n. " + input.getNumeroStanza() + " è ora vuota.");
 
-        // Svuoto la lista di clienti dalla stanza
-        clienti.clear();
         return totale;
-    }*/
+    }
 
     @Override
     public String toString() {
