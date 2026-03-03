@@ -42,15 +42,15 @@ public class TestHotel {
 
         // Checkout clienti
         System.out.println("\n--- Checkout stanza 1 ---");
-        int totaleStanza1 = stanza1.checkout();
+        int totaleStanza1 = hotel.calcolaConto(stanza1);
         System.out.println("Totale stanza 1: " + totaleStanza1);
 
         System.out.println("\n--- Checkout stanza 2 ---");
-        int totaleStanza2 = stanza2.checkout();
+        int totaleStanza2 = hotel.calcolaConto(stanza2);
         System.out.println("Totale stanza 2: " + totaleStanza2);
 
         System.out.println("\n--- Checkout stanza 3 ---");
-        int totaleStanza3 = stanza3.checkout();
+        int totaleStanza3 = hotel.calcolaConto(stanza3);
         System.out.println("Totale stanza 3: " + totaleStanza3);
 
         // Verifica delle stanze dopo il checkout (devono essere vuote)
@@ -61,7 +61,7 @@ public class TestHotel {
 
         // Checkout di una stanza vuota
         System.out.println("\n--- Provo il checkout su una stanza vuota ---");
-        int totaleVuota = stanza1.checkout();
+        int totaleVuota = hotel.calcolaConto(stanza1);
         System.out.println("Totale stanza vuota (stanza 1): " + totaleVuota);
 
         // Raggiunta capienza massima

@@ -7,6 +7,6 @@ public class Turista extends Cliente{
 
     @Override
     public int sommaRealeDaPagare() {
-        return 200;
+        return stanza.getQuantoAPersona();
     }
 }

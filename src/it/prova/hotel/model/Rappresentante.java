@@ -7,6 +7,6 @@ public class Rappresentante extends Cliente{
 
     @Override
     public int sommaRealeDaPagare() {
-        return (int) (200 * 0.8);
+        return (int) (stanza.getQuantoAPersona() * 0.8);
     }
 }

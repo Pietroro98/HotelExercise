@@ -91,35 +91,6 @@ public class Stanza {
     }
 
 
-    /**
-     * Metodo per effettuare il checkout di una stanza:
-     * - Calcola quanto deve pagare ogni cliente.
-     * - Somma i totale dei pagamenti dei clienti.
-     * - Rimuove tutti i clienti dalla stanza al termine,
-     * quindi stanza ritorna disponibile.
-     *
-     * @return Il totale pagato per la stanza.
-     */
-
-    public int checkout() {
-        System.out.println("Effettuando il checkout della stanza n. " + numeroStanza);
-        int totale = 0;
-
-        for (Cliente cliente : clienti) {
-            int daPagare = cliente.sommaRealeDaPagare();
-            System.out.println("Cliente: " + cliente.getNome() + " " + cliente.getCognome() +
-                    " paga: " + daPagare);
-            totale += daPagare;
-
-            //rimuovo il cliente dalla stanza
-            cliente.setStanza(null);
-        }
-
-        // Svuoto la lista di clienti dalla stanza
-        clienti.clear();
-        return totale;
-    }
-
     @Override
     public String toString() {
         return "Stanza{" +

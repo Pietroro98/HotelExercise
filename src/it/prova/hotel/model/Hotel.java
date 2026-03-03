@@ -64,6 +64,35 @@ public class Hotel {
         return stanzeDisponibili;
     }
 
+
+    public int calcolaConto(Stanza input) {
+        int sommaDaPagare = 0;
+        for (Cliente cliente : input.getClienti()) {
+            sommaDaPagare += cliente.sommaRealeDaPagare();
+        }
+        return sommaDaPagare;
+    }
+
+
+   /* public int checkout() {
+        System.out.println("Effettuando il checkout della stanza n. " + );
+        int totale = 0;
+
+        for (Cliente cliente : clienti) {
+            int daPagare = getHotel().calcolaConto(this);
+            System.out.println("Cliente: " + cliente.getNome() + " " + cliente.getCognome() +
+                    " paga: " + daPagare);
+            totale += daPagare;
+
+            //rimuovo il cliente dalla stanza
+            cliente.setStanza(null);
+        }
+
+        // Svuoto la lista di clienti dalla stanza
+        clienti.clear();
+        return totale;
+    }*/
+
     @Override
     public String toString() {
         return "Hotel{" +
